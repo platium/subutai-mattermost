@@ -5,6 +5,7 @@
     chdir: /tmp/
     creates: /tmp/ACCC4CF8.asc
     warn: false
+    
 - name: Update repositories cache and install sudo
   apt:
     name: sudo
