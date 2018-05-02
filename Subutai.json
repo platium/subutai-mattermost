@@ -8,7 +8,14 @@
             "hostname": "${contName}",
             "template": "debian-stretch",
             "peer-criteria": "HTTP-GROUP",
-            "size": "${containerSize}"
+            "size": "${containerSize}",
+            "port-mapping": [
+             {
+          "protocol": "HTTP",
+          "domain": "${domain}",
+          "internal-port": "8065",
+          "external-port": "80"
+        }
         }
     ],
     "peer-criteria": [
@@ -36,7 +43,7 @@
             "default": "wp",
             "validation": "[a-zA-Z0-9]+"
         },
-        "domainName": {
+        "domain": {
             "description": "Enter the application domain name",
             "type": "domain",
             "default": "change.the.domain",
