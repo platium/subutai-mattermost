@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  become: true
+  become_user: root
+  connection: local
+  gather_facts: no
+  pre_tasks:
+    - name: Install python
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      changed_when: false
+    - name: Gather Facts
+      setup:
+    
+  roles:
+    - { role: ansible-role-mattermost }
+  vars:
+    - SSL_type: nossl
+
+# vim:ft=ansible:
