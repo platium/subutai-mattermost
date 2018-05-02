@@ -1,0 +1,33 @@
+---
+- name: Enable the EPEL repository
+  yum:
+    name: epel-release
+    state: latest
+
+- name: download certbot
+  command: "wget https://dl.eff.org/certbot-auto"
+  args:
+    chdir: /usr/local/sbin
+    creates: /usr/local/sbin/certbot-auto
+    warn: false
+
+- name: Make certbot-auto executable
+  file:
+    path: /usr/local/sbin/certbot-auto
+    mode: 0700
+
+- name: Create symlink from certbot-auto to certbot
+  file:
+    src: /usr/local/sbin/certbot-auto
+    dest: /usr/local/sbin/certbot
+    owner: root
+    group: root
+    state: link
+
+- name: First run of certbot-auto - takes a while
+  shell: "certbot --os-packages-only --quiet; certbot"
+  failed_when: false
+  args:
+    creates: "/opt/eff.org/certbot/venv/bin/python"
+  
+# vim:ft=ansible:

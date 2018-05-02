@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  become: true
+  connection: local
+  gather_facts: no
+  pre_tasks:
+    - name: Install python
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      changed_when: false
+    - name: Gather Facts
+      setup:
+  roles:
+    - {role: ansible-role-letsencrypt}
+# vim:ft=ansible:
