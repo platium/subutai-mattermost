@@ -17,7 +17,7 @@
         }
     ],
     "ansible-configuration": {
-        "source-url": "https://github.com/absidish/mattermost/archive/master.zip",
+        "source-url": "https://github.com/absidish/subutai-mattermost/archive/master.zip",
         "ansible-playbook": "main.yml",
         "extra-vars": [],
         "groups": [
