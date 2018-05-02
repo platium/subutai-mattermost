@@ -16,7 +16,6 @@
           "internal-port": "8065",
           "external-port": "80"
         }
-        }
     ],
     "peer-criteria": [
         {
