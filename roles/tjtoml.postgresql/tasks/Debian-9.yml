@@ -5,7 +5,11 @@
     chdir: /tmp/
     creates: /tmp/ACCC4CF8.asc
     warn: false
-
+- name: Update repositories cache and install sudo
+  apt:
+    name: sudo
+    update_cache: yes
+    
 - name: Install postgres repository key
   command: "apt-key add /tmp/ACCC4CF8.asc"
   changed_when: false
