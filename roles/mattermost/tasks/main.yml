@@ -81,5 +81,10 @@
     enabled: yes
     state: started 
   notify: "restart services"
+  
+- name: Restart service httpd, in all cases
+  service:
+    name: mattermost
+    state: restarted
 
 # vim:ft=ansible:
