@@ -3,7 +3,10 @@
   remote_user: root
   gather_facts: yes
   roles:
-    - { role: mattermost }
+    - role: tjtoml.postgresql
+    - role: tjtoml.nginx
+    - role: tjtoml.letsencrypt
+    - role: mattermost
   vars:
     mattermost_version: 4.3.2
     db_user: mmost
