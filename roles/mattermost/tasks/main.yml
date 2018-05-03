@@ -82,6 +82,9 @@
     state: started 
   notify: "restart services"
   
+- name: Pause for the user to get created and replicated
+  pause: seconds=30
+  
 - name: Restart service httpd, in all cases
   service:
     name: mattermost
