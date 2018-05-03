@@ -3,7 +3,7 @@
 
 # High Level Vars
 
-mattermost_version: 4.3.2
+mattermost_version: 4.9.1
 db_user: mmost
 db_name: mattermost
 db_password: notReallyASecurePassword
